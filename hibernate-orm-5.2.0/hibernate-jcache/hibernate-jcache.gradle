@@ -1,0 +1,17 @@
+dependencies {
+    compile project( ':hibernate-core' )
+    compile( libraries.jcache )
+
+    testCompile project( ':hibernate-testing' )
+    testCompile( libraries.mockito )
+    testRuntime( libraries.ehcache3 )
+}
+
+mavenPom {
+    name = 'Hibernate/JCache Integration'
+    description = 'Integration for javax.cache into Hibernate as a second-level caching service'
+}
+
+def osgiDescription() {
+    return pomDescription()
+}
