@@ -31,10 +31,10 @@ public class SignInScene extends NotificationLayer implements Layer, ReturnableL
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin("Sign-In", 10);
-        ImGui.setWindowSize(300, 300);
+        ImGui.setWindowSize(300, 200);
 
         ImGui.setNextItemWidth(ITEM_WIDTH);
         ImGui.inputText("Login", container.Login, ImGuiInputTextFlags.CharsNoBlank);

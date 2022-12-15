@@ -67,6 +67,11 @@ public class Window
         this.layer = layer;
     }
 
+    public void switchColor(float[] color)
+    {
+        background = new Color(color[0], color[1], color[2], 0);
+    }
+
     public void destroy()
     {
         imGuiGlfw.dispose();

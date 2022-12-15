@@ -36,10 +36,10 @@ public class CompanyCreateScene extends NotificationLayer implements Layer, Retu
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
-        ImGui.begin("Create Company", 1 );
-        ImGui.setWindowSize(500, 500);
+        ImGui.begin("Create Company", 10);
+        ImGui.setWindowSize(350, 500);
 
         ImGui.setNextItemWidth(ITEM_WIDTH);
         ImGui.inputText("Login", container.Login, ImGuiInputTextFlags.CharsNoBlank);

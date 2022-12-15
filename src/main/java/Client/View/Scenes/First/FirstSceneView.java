@@ -7,4 +7,6 @@ public interface FirstSceneView extends ExitView
     void onSignInButtonClick();
     void onSignUpButtonClick();
     void onCreateCompanyButtonClick();
+
+    void onSetColorButtonDown(float[] color);
 }

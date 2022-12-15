@@ -31,6 +31,7 @@ public class AccountSettingsLayer extends NotificationLayer implements Layer, Re
 
     public void mainLayer()
     {
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin("Account Settings",  ViewConfig.MainWindow.WindowFlag);
         ImGui.setWindowSize(300, 300);

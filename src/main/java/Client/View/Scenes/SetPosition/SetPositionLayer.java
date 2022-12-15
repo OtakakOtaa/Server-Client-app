@@ -35,7 +35,7 @@ public class SetPositionLayer extends NotificationLayer implements Layer, Return
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin(" ",1);
         ImGui.beginTable("users in to your company", 5, ImGuiTabBarFlags.FittingPolicyMask_);

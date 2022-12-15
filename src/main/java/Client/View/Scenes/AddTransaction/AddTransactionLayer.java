@@ -39,7 +39,7 @@ public class AddTransactionLayer extends NotificationLayer implements Layer, Ret
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin("Add Transaction", 1 );
         ImGui.setWindowSize(500, 500);

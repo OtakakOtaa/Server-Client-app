@@ -36,6 +36,7 @@ public class TransactionListLayer extends NotificationLayer implements Layer, Re
 
     public void mainLayer()
     {
+        ViewConfig.setColorSchema();
         ImGui.styleColorsLight();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin(" ",1);

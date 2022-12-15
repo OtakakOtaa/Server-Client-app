@@ -30,17 +30,18 @@ public class AdminScene extends NotificationLayer implements Layer, ReturnableLa
 
     public void mainLayer()
     {
-        ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
+        ViewConfig.setColorSchema();
+        ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y() - 100);
         ImGui.begin("Welcome admin",  ViewConfig.MainWindow.WindowFlag);
-        ImGui.setWindowSize(300, 300);
+        ImGui.setWindowSize(600, 600);
 
         ImGui.newLine();
         ImGui.sameLine(50);
         if (ImGui.button("Account Settings", 200, 100))
             adminSceneView.onAccountSettingsButtonClick(this);
 
-        ImGui.newLine();
-        ImGui.sameLine(50);
+
+        ImGui.sameLine(300);
         if (ImGui.button("Account info", 200, 100))
             adminSceneView.onAccountInfoButtonClick();
 
@@ -49,8 +50,7 @@ public class AdminScene extends NotificationLayer implements Layer, ReturnableLa
         if (ImGui.button("view budget", 200, 100))
             adminSceneView.onBudgetAmountButtonClick();
 
-        ImGui.newLine();
-        ImGui.sameLine(50);
+        ImGui.sameLine(300);
         if (ImGui.button("view all transaction", 200, 100))
             adminSceneView.onTransactionListAmountButtonClick();
 
@@ -62,8 +62,7 @@ public class AdminScene extends NotificationLayer implements Layer, ReturnableLa
                 adminSceneView.onRequestsToJoinCompanyButtonClick(this);
 
 
-            ImGui.newLine();
-            ImGui.sameLine(50);
+            ImGui.sameLine(300);
             if (ImGui.button("All Employees info", 200, 100))
                 adminSceneView.onGetAllEmployeesInfoButtonClick(this);
 
@@ -72,8 +71,7 @@ public class AdminScene extends NotificationLayer implements Layer, ReturnableLa
             if (ImGui.button("Ban account", 200, 100) )
                 adminSceneView.onBanAccountButtonClick(this);
 
-            ImGui.newLine();
-            ImGui.sameLine(50);
+            ImGui.sameLine(300);
             if (ImGui.button("Set position", 200, 100))
                 adminSceneView.onSetPosition(this);
 
@@ -84,8 +82,13 @@ public class AdminScene extends NotificationLayer implements Layer, ReturnableLa
             ImGui.sameLine(50);
             if (ImGui.button("add transaction", 200, 100))
                 adminSceneView.onAddTransactionButtonClick();
-
         }
+
+        ImGui.newLine();
+        ImGui.sameLine(50);
+        if (ImGui.button("write budget data in file", 200, 100))
+            adminSceneView.onFileWriteButtonClick(this);
+
         ImGui.end();
     }
 

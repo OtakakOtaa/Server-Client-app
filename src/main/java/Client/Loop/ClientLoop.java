@@ -42,9 +42,11 @@ import Server.Services.Transaction.TransactionApprover;
 import Server.Services.Transaction.TransactionCreator;
 import Server.TransferMessageContainer;
 
+import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Stack;
 
@@ -127,6 +129,12 @@ public class ClientLoop implements Disposable,
             serverProvider.startAction(ServerContract.Operations.CREATE_NEW_COMPANY);
         }
         catch (IOException ignored) {}
+    }
+
+    @Override
+    public void onSetColorButtonDown(float[] color)
+    {
+        window.switchColor(color);
     }
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -524,7 +532,26 @@ public class ClientLoop implements Disposable,
     {
         try
         {
-            window.switchLayer(new BudgetAmountLayer(this, employee.getCompany()));
+            serverProvider.startAction(new TransferMessageContainer(ServerContract.Operations.ALL_TRANSACTION, employee.getCompany().getName()));
+            TransferMessageContainer dto = serverProvider.waitMessage();
+
+            List<Transaction> transaction = dto.TransactionList.value;
+            float[] commits =new float[transaction.size()];
+
+            float budget = employee.getCompany().getBudget();
+
+            for (int i = transaction.size() - 1; i >= 0; i--)
+            {
+                switch (transaction.get(i).getOperation())
+                {
+                    case Multiplication -> budget /= transaction.get(i).getValue();
+                    case Assign -> budget = transaction.get(i).getValue();
+                    case Addition -> budget -= transaction.get(i).getValue();
+                }
+                commits[i] = budget;
+            }
+
+            window.switchLayer(new BudgetAmountLayer(this, employee.getCompany(), commits));
             returnLayerRoadMap.push(new AdminScene(this, employee.getPosition()));
         }
         catch (Exception ignored) {}
@@ -542,6 +569,41 @@ public class ClientLoop implements Disposable,
             TransferMessageContainer dto = serverProvider.waitMessage();
             window.switchLayer(new TransactionListLayer(this, dto.TransactionList.value));
             returnLayerRoadMap.push(new AdminScene(this, employee.getPosition()));
+        }
+        catch (Exception ignored) {}
+    }
+
+    @Override
+    public void onFileWriteButtonClick(NotificationLayer notificationLayer)
+    {
+        try
+        {
+            serverProvider.startAction(new TransferMessageContainer(
+                    ServerContract.Operations.ALL_TRANSACTION,
+                    employee.getCompany().getName()
+            ));
+            TransferMessageContainer dto = serverProvider.waitMessage();
+
+            try(FileWriter writer = new FileWriter("notes.txt", true))
+            {
+                char[] breakLine = new char[50];
+                Arrays.fill(breakLine, '=');
+                breakLine[breakLine.length - 1] = '\n';
+                writer.write(breakLine);
+                writer.write(new Date(new java.util.Date().getTime()) + "\n");
+
+                String budgetInfo =  employee.getCompany().getName() + " : " + employee.getCompany().getBudget() + "\n";
+                writer.write(budgetInfo);
+
+                for (var transaction : dto.TransactionList.value)
+                    writer.write(transaction.toString() + "\n");
+
+                writer.flush();
+
+                notificationLayer.NotificationFlag = true;
+                notificationLayer.Message = "info added in notes.txt file";
+            }
+            catch(IOException ignored) {}
         }
         catch (Exception ignored) {}
     }

@@ -34,7 +34,7 @@ public class ApproveAccountsListLayer extends NotificationLayer implements Retur
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin(" ",1);
         ImGui.beginTable("Not approved users in to your company", 4, ImGuiTabBarFlags.FittingPolicyMask_);

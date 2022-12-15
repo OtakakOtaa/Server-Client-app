@@ -30,7 +30,7 @@ public class AccountInfoLayer implements Layer, ReturnableLayer
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin("Info", 1 );
         ImGui.setWindowSize(500, 500);

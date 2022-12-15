@@ -30,7 +30,7 @@ public class EmployeesListLayer implements Layer, ReturnableLayer
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
         ImGui.begin(" ",1);
         ImGui.beginTable("all users in your company", 6, ImGuiTabBarFlags.FittingPolicyMask_);

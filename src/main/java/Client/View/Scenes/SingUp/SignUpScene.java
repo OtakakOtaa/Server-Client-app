@@ -33,10 +33,9 @@ public class SignUpScene extends NotificationLayer implements Layer, ReturnableL
 
     public void mainLayer()
     {
-        ImGui.styleColorsLight();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x(), ViewConfig.MainWindow.Position.y());
-        ImGui.begin("Sign-Up", 1 );
-        ImGui.setWindowSize(500, 500);
+        ImGui.begin("Sign-Up", 10);
+        ImGui.setWindowSize(330, 500);
 
         ImGui.setNextItemWidth(ITEM_WIDTH);
         ImGui.inputText("Login", container.Login, ImGuiInputTextFlags.CharsNoBlank);

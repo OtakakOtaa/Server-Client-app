@@ -23,6 +23,7 @@ public class AccountValidityLayer implements Layer, ReturnableLayer
 
     public void mainLayer()
     {
+        ViewConfig.setColorSchema();
         ImGui.setNextWindowPos(ViewConfig.MainWindow.Position.x() - 60, ViewConfig.MainWindow.Position.y());
         ImGui.begin(" ",  ViewConfig.MainWindow.WindowFlag);
         ImGui.setWindowSize(600, 200);

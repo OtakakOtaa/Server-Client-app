@@ -15,4 +15,5 @@ public interface AdminSceneView extends ReturnView
     void onAddTransactionButtonClick();
     void onBudgetAmountButtonClick();
     void onTransactionListAmountButtonClick();
+    void onFileWriteButtonClick(NotificationLayer notificationLayer);
 }
