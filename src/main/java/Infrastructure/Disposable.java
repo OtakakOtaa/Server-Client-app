@@ -1,6 +1,7 @@
 package Infrastructure;
 
-public interface Disposable {
+public interface Disposable
+{
     void dispose() throws Exception;
 
 }

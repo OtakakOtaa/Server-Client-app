@@ -2,7 +2,6 @@ package Server;
 
 public class ServerContract
 {
-
     public static class Operations
     {
         public final static String SIGN_IN = "SIGN_IN";

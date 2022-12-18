@@ -67,7 +67,7 @@ public class ApproveAccountsListLayer extends NotificationLayer implements Retur
 
     public void selectButtonLayer()
     {
-        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 700, ViewConfig.NotificationWindow.Position.y() - 200);
+        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 100, ViewConfig.NotificationWindow.Position.y() - 100);
         ImGui.begin("Approve User", ViewConfig.NotificationWindow.WindowFlag);
         ImGui.setWindowSize(200, 100);
         ImGui.inputInt("user id", container.SelectedUser);

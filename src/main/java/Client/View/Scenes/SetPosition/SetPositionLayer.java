@@ -76,7 +76,7 @@ public class SetPositionLayer extends NotificationLayer implements Layer, Return
 
     public void selectButtonLayer()
     {
-        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 700, ViewConfig.NotificationWindow.Position.y() - 200);
+        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 100, ViewConfig.NotificationWindow.Position.y() - 100);
         ImGui.begin("Set position", ViewConfig.NotificationWindow.WindowFlag);
         ImGui.setWindowSize(200, 100);
         ImGui.inputInt("user id", container.SelectedUser);

@@ -5,11 +5,8 @@ import Client.View.Scenes.Behaviors.UnDo.ReturnView;
 import Client.View.Scenes.Behaviors.UnDo.ReturnableLayer;
 import Client.View.Scenes.Layer;
 import Server.Entities.Company;
-import Server.Entities.Transaction;
 import imgui.ImGui;
-import imgui.ImVec4;
 
-import java.util.List;
 
 public class BudgetAmountLayer implements Layer, ReturnableLayer
 {

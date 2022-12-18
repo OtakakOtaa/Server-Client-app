@@ -82,7 +82,7 @@ public class TransactionListLayer extends NotificationLayer implements Layer, Re
 
     public void selectButtonLayer()
     {
-        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 700, ViewConfig.NotificationWindow.Position.y() - 200);
+        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 200, ViewConfig.NotificationWindow.Position.y() - 100);
         ImGui.begin("View type", ViewConfig.NotificationWindow.WindowFlag);
         ImGui.setWindowSize(200, 100);
 

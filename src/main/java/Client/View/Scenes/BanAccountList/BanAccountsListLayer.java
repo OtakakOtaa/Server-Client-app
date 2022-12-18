@@ -68,7 +68,7 @@ public class BanAccountsListLayer extends NotificationLayer implements Returnabl
     public void selectButtonLayer()
     {
         ViewConfig.setColorSchema();
-        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 700, ViewConfig.NotificationWindow.Position.y() - 200);
+        ImGui.setNextWindowPos(ViewConfig.NotificationWindow.Position.x() + 100, ViewConfig.NotificationWindow.Position.y() - 100);
         ImGui.begin("Ban User", ViewConfig.NotificationWindow.WindowFlag);
         ImGui.setWindowSize(200, 100);
         ImGui.inputInt("user id", container.SelectedUser);
